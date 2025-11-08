@@ -3,8 +3,11 @@ import java.util.HashSet;
 public class P36b {
 
     public static boolean isValidSudoku(char[][] board) {
+        @SuppressWarnings("unchecked")
         HashSet<Character>[] rows = new HashSet[9];
+        @SuppressWarnings("unchecked")
         HashSet<Character>[] cols = new HashSet[9];
+        @SuppressWarnings("unchecked")
         HashSet<Character>[] boxes = new HashSet[9];
 
         for (int i = 0; i < 9; i++) {
