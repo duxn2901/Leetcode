@@ -17,7 +17,7 @@ public class P0076MinWindowSubstring {
             char charRight = s.charAt(right);
             if (map.containsKey(charRight)) {
                 seen.put(charRight, seen.getOrDefault(charRight, 0)+1);
-                if (seen.get(charRight) == map.get(charRight)) charValid++;
+                if (seen.get(charRight).equals(map.get(charRight))) charValid++;
                 while (charValid == map.size()) {
                     if (right - left + 1 < minLength) {
                         minLength = right - left + 1;
