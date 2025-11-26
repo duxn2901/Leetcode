@@ -10,8 +10,9 @@ public class P1262GreatestSumDiv3 {
         int[] DP = new int[] {0, Integer.MIN_VALUE, Integer.MIN_VALUE}; // DP[0] = best sum %3 ==0, DP[1] = ... %3==1, [2]%3==2
         int[] newDP = new int[3];
         int modNow = 0;
+        newDP =  DP.clone();
         for (int num : nums) {
-            newDP =  DP.clone();
+            
             for (int mod = 0; mod < 3; mod++) {
                 if (DP[mod] == Integer.MIN_VALUE) continue;
                 
