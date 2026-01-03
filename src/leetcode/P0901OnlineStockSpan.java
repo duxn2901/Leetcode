@@ -4,12 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class P0901OnlineStockSpan {
-
-    public static void main(String[] args) {
-        P0901OnlineStockSpan obj = new P0901OnlineStockSpan();
-    }
-    
-    private Deque<int[]> stack;
+  private Deque<int[]> stack;
     public P0901OnlineStockSpan() {
         stack = new ArrayDeque<>();
     }
