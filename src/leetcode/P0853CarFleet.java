@@ -1,8 +1,6 @@
 package leetcode;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
+import java.util.Arrays;
 
 public class P0853CarFleet {
 
@@ -14,29 +12,22 @@ public class P0853CarFleet {
     }
 
     public static int carFleet(int target, int[] position, int[] speed) {
-        Deque<ArrayList<Double>> stack = new ArrayDeque<>();
+        int n = position.length;
         int fleetCount = 0;
-        ArrayList<ArrayList<Double>> pair = new ArrayList<>() ;
-        for (int i = 0; i < position.length; i++) {
-            ArrayList<Double> tempL = new ArrayList<>();
-            tempL.add(Double.valueOf(position[i]));
-            tempL.add(Double.valueOf(speed[i]));
-            pair.add(tempL);
+        double[][] cars = new double[n][2]; // first param position, second time to reach target
+        for (int i = 0; i < n; i++) {
+            cars[i][0] = position[i];
+            cars[i][1] = (double) (target - position[i]) / speed[i];
         }
-        pair.sort((a,b) -> Double.compare(a.get(0), b.get(0)));
-        System.out.println(pair);
-        for (var a : pair) stack.push(a);
-        while (!stack.isEmpty()) {
-            double timePassed = (target - stack.peek().get(0)) / stack.peek().get(1);
-            int carsReachedTarget = 0;
-            for (var list : stack) {
-                list.set(0, list.get(0) + timePassed * list.get(1));
-                if (list.get(0) >= target) carsReachedTarget++;
+        Arrays.sort(cars, (b,a) -> Double.compare(a[0], b[0])); //sort by first parameter(position)
+        double slowest = cars[0][1];
+
+        for (int car = 1; car < n; car++) {
+            if (cars[car][1] > slowest) {
+                fleetCount++;
+                slowest = cars[car][1];
             }
-            for (int i = 0; i < carsReachedTarget; i++) {
-                stack.pop();
-            }
-            fleetCount++;
+
         }
 
         return fleetCount;
