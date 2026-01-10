@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class P30SubstringConcatenation {
+public class P0030SubstringConcatenation {
     public static void main(String[] args) {
         String s = "barfoothefoobarman";
         String[] words = {"foo","bar"};
@@ -18,7 +18,7 @@ public class P30SubstringConcatenation {
         for (String word : words) wordHashMap.put(word, wordHashMap.getOrDefault(word, 0)+1);
         int wordLength = words[0].length();
         int left;
-        int right = 0;
+        int right;
         for (int modulo = 0; modulo < wordLength; modulo++) { // check for each offsets of string s. ie. len = 3 => check for 036, 147, 258
             left = modulo; right = modulo;
             seen.clear();
