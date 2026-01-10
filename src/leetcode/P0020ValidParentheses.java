@@ -1,6 +1,6 @@
 package leetcode;
 
-public class P20 {
+public class P0020ValidParentheses {
     public boolean isValid(String s) {
         char[] stack = new char[s.length()];
         int top = -1;
@@ -22,7 +22,6 @@ public class P20 {
                 top--;
             }
         }
-        if (top >= 0) return false;
-        return true;
+        return top >= 0;
     }
 }
