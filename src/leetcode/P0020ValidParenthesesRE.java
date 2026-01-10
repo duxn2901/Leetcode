@@ -19,8 +19,7 @@ public class P0020ValidParenthesesRE {
                 if (stack.isEmpty() || stack.pop() != '{') return false;
             }
         }
-        if (!stack.isEmpty()) return false;
-        return true;
+        return !stack.isEmpty();
     }
     
 
