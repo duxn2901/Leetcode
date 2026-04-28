@@ -1,5 +1,5 @@
 package leetcode;
-public class P326PowerOfThree {
+public class P0326PowerOfThree {
 
     public boolean isPowerOfThree(int n) {
         if (n<0) return false;
