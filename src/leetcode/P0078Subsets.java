@@ -1,7 +1,7 @@
 package leetcode;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class P0078Subsets {
 
@@ -13,7 +13,7 @@ public class P0078Subsets {
     static List<List<Integer>> answer;
     public static List<List<Integer>> subsets(int[] nums) {
         answer = new ArrayList<>();
-        helper(nums, 0, new ArrayList<Integer>());
+        helper(nums, 0, new ArrayList<>());
         return answer;
     }
 
