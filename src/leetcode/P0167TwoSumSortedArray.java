@@ -2,9 +2,7 @@ package leetcode;
 
 public class P0167TwoSumSortedArray {
     public int[] twoSum(int[] numbers, int target) {
-        int left = 1;
-        int right = numbers.length-1;
-        int targetInt = 0;
+        int left, right, targetInt;
         int[] answer = new int[2];
         for (int i = 0; i < numbers.length; i++) {
             targetInt = target - numbers[i];
