@@ -14,25 +14,21 @@ public class P0239SlidingWindowMaximum {
         int right = 0;
         int i = 0;
 
-        while (right < k) {
-            while (!deque.isEmpty() && nums[right] > deque.getLast()) deque.pollLast();
-            deque.addLast(nums[right]);
-            right++;
-        }
         while (right < nums.length) {
-            answer[i] = deque.getFirst();
-            i++;
-            if (!deque.isEmpty() && nums[left] == deque.getFirst()) deque.pollFirst();
-            left++;
 
             while (!deque.isEmpty() && nums[right] > deque.getLast()) deque.pollLast();
             deque.addLast(nums[right]);
             right++;
 
-            
+            if (right >= k) {
+                answer[i] = deque.getFirst();
+                i++;
+
+                if (!deque.isEmpty() && nums[left] == deque.getFirst()) deque.pollFirst();
+                left++;
+            }
         }
-        answer[i] = deque.getFirst();
-        
+             
         return answer;
     }
 }
