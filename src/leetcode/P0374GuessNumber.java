@@ -1,6 +1,7 @@
 package leetcode;
 @SuppressWarnings("all")
 public class P0374GuessNumber {
+    int pick = (int) (Math.random() * Integer.MAX_VALUE);
     public int guessNumber(int n) {
         int l = 1;
         int r = n;
@@ -12,5 +13,11 @@ public class P0374GuessNumber {
             else if (guess(mid) == 1) l = mid+1;
             else return mid;
         }
+    }
+
+    public int guess(int n) {
+        if (n > pick) return -1;
+        if (n < pick) return 1;
+        return 0;
     }
 }
